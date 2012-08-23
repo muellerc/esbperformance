@@ -31,5 +31,6 @@
 
     <modules>
         <module>proxy</module>
+        <module>cbr</module>
     </modules>
 </project>

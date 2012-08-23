@@ -19,6 +19,8 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:camel="http://camel.apache.org/schema/spring"
     xmlns:cxf="http://camel.apache.org/schema/cxf"
+    xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+    xmlns:m="http://services.samples/xsd"
     xsi:schemaLocation="
        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
        http://camel.apache.org/schema/spring http://camel.apache.org/schema/spring/camel-spring.xsd
@@ -26,11 +28,11 @@
 
     <import resource="classpath:META-INF/cxf/cxf.xml" />
 
-    <cxf:cxfEndpoint id="directProxy"
-        address="http://0.0.0.0:8192/service/DirectProxy"
-        endpointName="service:EchoServicePort"
-        serviceName="service:DirectProxy"
-        wsdlURL="META-INF/wsdl/ProxyWSDL-consumer-embedded.wsdl"
+    <cxf:cxfEndpoint id="cbrProxy"
+        address="http://0.0.0.0:8182/service/CBRProxy"
+        endpointName="service:CBREchoServicePort"
+        serviceName="service:CBRProxy"
+        wsdlURL="META-INF/wsdl/CBRWSDL-consumer-embedded.wsdl"
         xmlns:service="http://services.samples/xsd">
         
         <cxf:properties>
@@ -40,9 +42,9 @@
 
     <cxf:cxfEndpoint id="echoService"
         address="http://localhost:9000/service/EchoService"
-        endpointName="service:EchoServicePort"
-        serviceName="service:ProxyEchoService"
-        wsdlURL="META-INF/wsdl/ProxyWSDL-provider-embedded.wsdl"
+        endpointName="service:CBREchoServicePort"
+        serviceName="service:CBREchoService"
+        wsdlURL="META-INF/wsdl/CBRWSDL-provider-embedded.wsdl"
         bindingId="service:EchoServiceSOAP11Binding"
         xmlns:service="http://services.samples/xsd">
         
@@ -52,9 +54,13 @@
     </cxf:cxfEndpoint>
 
     <camelContext xmlns="http://camel.apache.org/schema/spring">
-        <route id="cxf-direct-proxy">
-            <from uri="cxf:bean:directProxy" />
-            <to uri="cxf:bean:echoService" />
+        <route streamCache="true">
+            <from uri="cxf:bean:cbrProxy" />
+            <filter>
+                <xquery>/soapenv:Envelope/soapenv:Body/m:buyStocks/order[1]/symbol='IBM'</xquery>
+                <!-- <xquery>//order[1]/symbol='IBM'</xquery> -->
+                <to uri="cxf:bean:echoService" />
+            </filter>
         </route>
     </camelContext>
 </beans>
