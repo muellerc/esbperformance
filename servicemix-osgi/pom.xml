@@ -32,5 +32,6 @@
     <modules>
         <module>proxy</module>
         <module>cbr</module>
+        <module>xslt</module>
     </modules>
 </project>
