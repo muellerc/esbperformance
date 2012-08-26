@@ -34,5 +34,6 @@
         <module>cbr</module>
         <module>xslt</module>
         <module>http-hbr</module>
+        <module>soap-hbr</module>
     </modules>
 </project>

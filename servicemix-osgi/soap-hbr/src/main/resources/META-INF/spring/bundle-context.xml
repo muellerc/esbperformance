@@ -19,6 +19,8 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:camel="http://camel.apache.org/schema/spring"
     xmlns:cxf="http://camel.apache.org/schema/cxf"
+    xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+    xmlns:m="http://services.samples/xsd"
     xsi:schemaLocation="
        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
        http://camel.apache.org/schema/spring http://camel.apache.org/schema/spring/camel-spring.xsd
@@ -30,7 +32,7 @@
         address="http://0.0.0.0:8182/service/CBRProxy"
         endpointName="service:CBREchoServicePort"
         serviceName="service:CBRProxy"
-        wsdlURL="META-INF/wsdl/HBRTransportWSDL-consumer-embedded.wsdl"
+        wsdlURL="META-INF/wsdl/HBRSoapWSDL-consumer-embedded.wsdl"
         xmlns:service="http://services.samples/xsd">
         
         <cxf:properties>
@@ -42,7 +44,7 @@
         address="http://localhost:9000/service/EchoService"
         endpointName="service:CBREchoServicePort"
         serviceName="service:CBREchoService"
-        wsdlURL="META-INF/wsdl/HBRTransportWSDL-provider-embedded.wsdl"
+        wsdlURL="META-INF/wsdl/HBRSoapWSDL-provider-embedded.wsdl"
         bindingId="service:EchoServiceSOAP11Binding"
         xmlns:service="http://services.samples/xsd">
         
@@ -55,7 +57,8 @@
         <route streamCache="true">
             <from uri="cxf:bean:cbrProxy" />
             <filter>
-                <simple>${in.header.routing} == 'xadmin;server1;community#1.0##'</simple>
+                <xquery>/soapenv:Envelope/soapenv:Body/m:buyStocks/order[1]/symbol='IBM'</xquery>
+                <!-- <xquery>//route:routing='xadmin;server1;community#1.0##'</xquery> -->
                 <to uri="cxf:bean:echoService" />
             </filter>
         </route>
