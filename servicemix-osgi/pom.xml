@@ -35,5 +35,6 @@
         <module>xslt</module>
         <module>http-hbr</module>
         <module>soap-hbr</module>
+        <module>secure-proxy</module>
     </modules>
 </project>

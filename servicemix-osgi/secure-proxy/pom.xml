@@ -19,16 +19,15 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-
+    
     <parent>
-        <groupId>org.apache.cmueller.camel.esbperf</groupId>
         <artifactId>servicemix-osgi</artifactId>
+        <groupId>org.apache.cmueller.camel.esbperf</groupId>
         <version>0.0.1-SNAPSHOT</version>
         <relativePath>..</relativePath>
     </parent>
-
     <groupId>org.apache.cmueller.camel.esbperf.servicemix-osgi</groupId>
-    <artifactId>proxy</artifactId>
+    <artifactId>secure-proxy</artifactId>
     <packaging>bundle</packaging>
     
     <dependencies>
@@ -37,6 +36,11 @@
             <artifactId>camel-cxf</artifactId>
             <version>${org.apache.camel.version}</version>
         </dependency>
+    <dependency>
+        <groupId>org.apache.ws.security</groupId>
+        <artifactId>wss4j</artifactId>
+        <version>1.5.11</version>
+    </dependency>
     </dependencies>
 
     <build>
