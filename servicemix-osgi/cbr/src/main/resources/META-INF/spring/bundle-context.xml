@@ -29,7 +29,7 @@
     <import resource="classpath:META-INF/cxf/cxf.xml" />
 
     <cxf:cxfEndpoint id="cbrProxy"
-        address="http://0.0.0.0:8182/service/CBRProxy"
+        address="http://0.0.0.0:8193/service/CBRProxy"
         endpointName="service:CBREchoServicePort"
         serviceName="service:CBRProxy"
         wsdlURL="META-INF/wsdl/CBRWSDL-consumer-embedded.wsdl"
@@ -58,7 +58,6 @@
             <from uri="cxf:bean:cbrProxy" />
             <filter>
                 <xquery>/soapenv:Envelope/soapenv:Header/r:routing='xadmin;server1;community#1.0##'</xquery>
-                <!-- <xquery>//order[1]/symbol='IBM'</xquery> -->
                 <to uri="cxf:bean:echoService" />
             </filter>
         </route>

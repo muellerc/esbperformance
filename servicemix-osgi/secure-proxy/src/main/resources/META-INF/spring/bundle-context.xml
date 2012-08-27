@@ -27,9 +27,9 @@
     <import resource="classpath:META-INF/cxf/cxf.xml" />
 
     <cxf:cxfEndpoint id="directProxy"
-        address="http://0.0.0.0:8192/service/DirectProxy"
+        address="http://0.0.0.0:8197/service/DirectProxy"
         endpointName="service:EchoServicePort"
-        serviceName="service:DirectProxy"
+        serviceName="service:SecureProxy"
         wsdlURL="META-INF/wsdl/SecureProxyWSDL-consumer-embedded.wsdl"
         xmlns:service="http://services.samples/xsd">
 
@@ -83,7 +83,7 @@
     <cxf:cxfEndpoint id="echoService"
         address="http://localhost:9000/service/EchoService"
         endpointName="service:EchoServicePort"
-        serviceName="service:ProxyEchoService"
+        serviceName="service:SecureEchoService"
         wsdlURL="META-INF/wsdl/SecureProxyWSDL-provider-embedded.wsdl"
         bindingId="service:EchoServiceSOAP11Binding"
         xmlns:service="http://services.samples/xsd">

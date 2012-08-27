@@ -29,9 +29,9 @@
     <import resource="classpath:META-INF/cxf/cxf.xml" />
 
     <cxf:cxfEndpoint id="cbrProxy"
-        address="http://0.0.0.0:8182/service/CBRProxy"
-        endpointName="service:CBREchoServicePort"
-        serviceName="service:CBRProxy"
+        address="http://0.0.0.0:8194/service/CBRProxy"
+        endpointName="service:CBRSOAPHeaderEchoServicePort"
+        serviceName="service:CBRSOAPHeaderProxy"
         wsdlURL="META-INF/wsdl/HBRSoapWSDL-consumer-embedded.wsdl"
         xmlns:service="http://services.samples/xsd">
         
@@ -42,8 +42,8 @@
 
     <cxf:cxfEndpoint id="echoService"
         address="http://localhost:9000/service/EchoService"
-        endpointName="service:CBREchoServicePort"
-        serviceName="service:CBREchoService"
+        endpointName="service:HBRSoapEchoServicePort"
+        serviceName="service:HBRSoapEchoService"
         wsdlURL="META-INF/wsdl/HBRSoapWSDL-provider-embedded.wsdl"
         bindingId="service:EchoServiceSOAP11Binding"
         xmlns:service="http://services.samples/xsd">
@@ -58,7 +58,6 @@
             <from uri="cxf:bean:cbrProxy" />
             <filter>
                 <xquery>/soapenv:Envelope/soapenv:Body/m:buyStocks/order[1]/symbol='IBM'</xquery>
-                <!-- <xquery>//route:routing='xadmin;server1;community#1.0##'</xquery> -->
                 <to uri="cxf:bean:echoService" />
             </filter>
         </route>

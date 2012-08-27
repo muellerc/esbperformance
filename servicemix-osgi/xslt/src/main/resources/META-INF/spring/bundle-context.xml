@@ -27,7 +27,7 @@
     <import resource="classpath:META-INF/cxf/cxf.xml" />
 
     <cxf:cxfEndpoint id="xsltProxy"
-        address="http://0.0.0.0:8192/service/XSLTProxy"
+        address="http://0.0.0.0:8196/service/XSLTProxy"
         endpointName="service:EchoServicePort"
         serviceName="service:XSLTProxy"
         wsdlURL="META-INF/wsdl/TransformerWSDL-consumer-embedded.wsdl"
