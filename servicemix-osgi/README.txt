@@ -1,4 +1,4 @@
-Apache ServiceMix 4.4.2 - powered by Camel
+Apache ServiceMix 4.5.0 - powered by Camel
 
 Use Maven 3.x to build the artifacts as:
 
