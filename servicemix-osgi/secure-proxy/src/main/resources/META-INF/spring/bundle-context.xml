@@ -26,8 +26,8 @@
 
     <import resource="classpath:META-INF/cxf/cxf.xml" />
 
-    <cxf:cxfEndpoint id="directProxy"
-        address="http://0.0.0.0:8197/service/DirectProxy"
+    <cxf:cxfEndpoint id="secureProxy"
+        address="/SecureProxy"
         endpointName="service:EchoServicePort"
         serviceName="service:SecureProxy"
         wsdlURL="META-INF/wsdl/SecureProxyWSDL-consumer-embedded.wsdl"
@@ -101,7 +101,7 @@
 
     <camelContext xmlns="http://camel.apache.org/schema/spring">
         <route id="cxf-secure-proxy">
-            <from uri="cxf:bean:directProxy" />
+            <from uri="cxf:bean:secureProxy" />
             <to uri="cxf:bean:echoService" />
         </route>
     </camelContext>

@@ -29,7 +29,7 @@
     <import resource="classpath:META-INF/cxf/cxf.xml" />
 
     <cxf:cxfEndpoint id="cbrProxy"
-        address="http://0.0.0.0:8193/service/CBRProxy"
+        address="/CBRProxy"
         endpointName="service:CBREchoServicePort"
         serviceName="service:CBRProxy"
         wsdlURL="META-INF/wsdl/CBRWSDL-consumer-embedded.wsdl"

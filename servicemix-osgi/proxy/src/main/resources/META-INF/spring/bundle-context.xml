@@ -27,7 +27,7 @@
     <import resource="classpath:META-INF/cxf/cxf.xml" />
 
     <cxf:cxfEndpoint id="directProxy"
-        address="http://0.0.0.0:8192/service/DirectProxy"
+        address="/DirectProxy"
         endpointName="service:EchoServicePort"
         serviceName="service:DirectProxy"
         wsdlURL="META-INF/wsdl/ProxyWSDL-consumer-embedded.wsdl"
