@@ -23,12 +23,12 @@ Start ServiceMix as
 First install the DirectProxy deployable artifacts into ServiceMix. On the ServiceMix console,
 type following to install and start each proxy services into ServiceMix
 
-    karaf@trun> install -s mvn:org.apache.cmueller.camel.esbperf.servicemix-osgi/proxy/1.1.0
- 	karaf@trun> install -s mvn:org.apache.cmueller.camel.esbperf.servicemix-osgi/cbr/1.1.0
-	karaf@trun> install -s mvn:org.apache.cmueller.camel.esbperf.servicemix-osgi/soap-hbr/1.1.0
-	karaf@trun> install -s mvn:org.apache.cmueller.camel.esbperf.servicemix-osgi/http-hbr/1.1.0
-	karaf@trun> install -s mvn:org.apache.cmueller.camel.esbperf.servicemix-osgi/xslt/1.1.0
-	karaf@trun> install -s mvn:org.apache.cmueller.camel.esbperf.servicemix-osgi/secure-proxy/1.1.0
+    karaf@trun> install -s mvn:org.apache.cmueller.camel.esbperf.servicemix-osgi/proxy/2.0.0-SNAPSHOT
+ 	karaf@trun> install -s mvn:org.apache.cmueller.camel.esbperf.servicemix-osgi/cbr/2.0.0-SNAPSHOT
+	karaf@trun> install -s mvn:org.apache.cmueller.camel.esbperf.servicemix-osgi/soap-hbr/2.0.0-SNAPSHOT
+	karaf@trun> install -s mvn:org.apache.cmueller.camel.esbperf.servicemix-osgi/http-hbr/2.0.0-SNAPSHOT
+	karaf@trun> install -s mvn:org.apache.cmueller.camel.esbperf.servicemix-osgi/xslt/2.0.0-SNAPSHOT
+	karaf@trun> install -s mvn:org.apache.cmueller.camel.esbperf.servicemix-osgi/secure-proxy/2.0.0-SNAPSHOT
     
 Before executing the performance test, re-generate the WS-Security related requests as ServiceMix is particular about the timestamps used
     $ cd client-scripts
@@ -37,7 +37,7 @@ Before executing the performance test, re-generate the WS-Security related reque
 Execute the performance test as follows
 
     $ cd ~/client-scripts
-    $ ./loadtest.sh http://localhost:8192/service > servicemix-4.4.2.txt
+    $ ./loadtest.sh http://localhost:8192/service > servicemix-4.5.0.txt
 
 
 Service URLs
