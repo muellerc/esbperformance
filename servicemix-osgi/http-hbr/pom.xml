@@ -23,7 +23,7 @@
     <parent>
         <artifactId>servicemix-osgi</artifactId>
         <groupId>org.apache.cmueller.camel.esbperf</groupId>
-        <version>1.1.0</version>
+        <version>1.1.1-SNAPSHOT</version>
         <relativePath>..</relativePath>
     </parent>
     
