@@ -57,7 +57,7 @@
         <route streamCache="true">
             <from uri="cxf:bean:cbrProxy" />
             <filter>
-                <xquery>/soapenv:Envelope/soapenv:Header/r:routing='xadmin;server1;community#1.0##'</xquery>
+                <xquery>/soapenv:Envelope/soapenv:Body/m:buyStocks/order[1]/symbol='IBM'</xquery>
                 <to uri="cxf:bean:echoService" />
             </filter>
         </route>
