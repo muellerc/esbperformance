@@ -1,1 +1,59 @@
-christian-muellers-macbook-pro:servicemix-osgi cmueller$ ab -n 10000 -c 20 -p 1K_buyStocks.xml -T text/xml http://localhost:8192/service/XSLTProxy
+christian-muellers-macbook-pro:xslt cmueller$ ab -n 10000 -c 20 -p 1K_buyStocks.xml -T text/xml http://localhost:8192/service/XSLTProxy
+This is ApacheBench, Version 2.3 <$Revision: 655654 $>
+Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
+Licensed to The Apache Software Foundation, http://www.apache.org/
+
+Benchmarking localhost (be patient)
+Completed 1000 requests
+Completed 2000 requests
+Completed 3000 requests
+Completed 4000 requests
+Completed 5000 requests
+Completed 6000 requests
+Completed 7000 requests
+Completed 8000 requests
+Completed 9000 requests
+Completed 10000 requests
+Finished 10000 requests
+
+
+Server Software:        Jetty(7.5.4.v20111024)
+Server Hostname:        localhost
+Server Port:            8192
+
+Document Path:          /service/XSLTProxy
+Document Length:        1284 bytes
+
+Concurrency Level:      20
+Time taken for tests:   3.747 seconds
+Complete requests:      10000
+Failed requests:        0
+Write errors:           0
+Non-2xx responses:      10012
+Total transferred:      14597496 bytes
+Total POSTed:           11714040
+HTML transferred:       12855408 bytes
+Requests per second:    2668.51 [#/sec] (mean)
+Time per request:       7.495 [ms] (mean)
+Time per request:       0.375 [ms] (mean, across all concurrent requests)
+Transfer rate:          3804.06 [Kbytes/sec] received
+                        3052.64 kb/s sent
+                        6856.71 kb/s total
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:        0    2   3.8      1      42
+Processing:     0    5   6.4      4      94
+Waiting:        0    4   5.9      3      83
+Total:          1    7   7.5      5      95
+
+Percentage of the requests served within a certain time (ms)
+  50%      5
+  66%      6
+  75%      8
+  80%      9
+  90%     13
+  95%     19
+  98%     30
+  99%     40
+ 100%     95 (longest request)

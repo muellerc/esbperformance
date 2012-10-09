@@ -1,1 +1,59 @@
-christian-muellers-macbook-pro:servicemix-osgi cmueller$ ab -n 10000 -c 20 -p 1K_buyStocks_secure.xml -T text/xml http://localhost:8192/service/SecureProxy
+christian-muellers-macbook-pro:secure-proxy cmueller$ ab -n 10000 -c 20 -p 1K_buyStocks_secure.xml -T text/xml http://localhost:8192/service/SecureProxy
+This is ApacheBench, Version 2.3 <$Revision: 655654 $>
+Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
+Licensed to The Apache Software Foundation, http://www.apache.org/
+
+Benchmarking localhost (be patient)
+Completed 1000 requests
+Completed 2000 requests
+Completed 3000 requests
+Completed 4000 requests
+Completed 5000 requests
+Completed 6000 requests
+Completed 7000 requests
+Completed 8000 requests
+Completed 9000 requests
+Completed 10000 requests
+Finished 10000 requests
+
+
+Server Software:        Jetty(7.5.4.v20111024)
+Server Hostname:        localhost
+Server Port:            8192
+
+Document Path:          /service/SecureProxy
+Document Length:        1286 bytes
+
+Concurrency Level:      20
+Time taken for tests:   1.834 seconds
+Complete requests:      10000
+Failed requests:        0
+Write errors:           0
+Non-2xx responses:      10013
+Total transferred:      14618980 bytes
+Total POSTed:           64712721
+HTML transferred:       12876718 bytes
+Requests per second:    5453.75 [#/sec] (mean)
+Time per request:       3.667 [ms] (mean)
+Time per request:       0.183 [ms] (mean, across all concurrent requests)
+Transfer rate:          7785.96 [Kbytes/sec] received
+                        34465.52 kb/s sent
+                        42251.48 kb/s total
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:        0    1   1.6      1      66
+Processing:     0    3   4.3      2      68
+Waiting:        0    2   2.4      2      66
+Total:          1    4   4.6      3      69
+
+Percentage of the requests served within a certain time (ms)
+  50%      3
+  66%      3
+  75%      3
+  80%      4
+  90%      5
+  95%      6
+  98%      8
+  99%     12
+ 100%     69 (longest request)
