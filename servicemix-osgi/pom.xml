@@ -24,6 +24,7 @@
     <packaging>pom</packaging>
 
     <properties>
+        <org.apache-extras.camel-extra.version>2.10.0</org.apache-extras.camel-extra.version>
         <org.apache.camel.version>2.10.1</org.apache.camel.version>
         <org.apache.felix.maven-bundle-plugin.version>2.3.7</org.apache.felix.maven-bundle-plugin.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -32,6 +33,7 @@
     <modules>
         <module>proxy</module>
         <module>cbr</module>
+        <module>cbr-enhanced</module>
         <module>xslt</module>
         <module>http-hbr</module>
         <module>soap-hbr</module>

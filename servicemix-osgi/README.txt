@@ -20,7 +20,7 @@ Start ServiceMix as
     $ cd ${SMX_HOME}/bin
     $ ./servicemix
 
-First install the DirectProxy deployable artifacts into ServiceMix. On the ServiceMix console,
+First install the service deployable artifacts into ServiceMix. On the ServiceMix console,
 type following to install and start each proxy services into ServiceMix
 
     karaf@trun> install -s mvn:org.apache.cmueller.camel.esbperf.servicemix-osgi/proxy/2.0.0-SNAPSHOT

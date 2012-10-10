@@ -25,35 +25,35 @@ Document Path:          /service/XSLTProxy
 Document Length:        1284 bytes
 
 Concurrency Level:      20
-Time taken for tests:   3.747 seconds
+Time taken for tests:   1.945 seconds
 Complete requests:      10000
 Failed requests:        0
 Write errors:           0
-Non-2xx responses:      10012
-Total transferred:      14597496 bytes
-Total POSTed:           11714040
-HTML transferred:       12855408 bytes
-Requests per second:    2668.51 [#/sec] (mean)
-Time per request:       7.495 [ms] (mean)
-Time per request:       0.375 [ms] (mean, across all concurrent requests)
-Transfer rate:          3804.06 [Kbytes/sec] received
-                        3052.64 kb/s sent
-                        6856.71 kb/s total
+Non-2xx responses:      10007
+Total transferred:      14590206 bytes
+Total POSTed:           11708190
+HTML transferred:       12848988 bytes
+Requests per second:    5140.47 [#/sec] (mean)
+Time per request:       3.891 [ms] (mean)
+Time per request:       0.195 [ms] (mean, across all concurrent requests)
+Transfer rate:          7324.27 [Kbytes/sec] received
+                        5877.50 kb/s sent
+                        13201.77 kb/s total
 
 Connection Times (ms)
               min  mean[+/-sd] median   max
-Connect:        0    2   3.8      1      42
-Processing:     0    5   6.4      4      94
-Waiting:        0    4   5.9      3      83
-Total:          1    7   7.5      5      95
+Connect:        0    1   1.6      1      47
+Processing:     0    3   3.3      2      57
+Waiting:        0    2   2.7      2      57
+Total:          0    4   3.6      3      57
 
 Percentage of the requests served within a certain time (ms)
-  50%      5
-  66%      6
-  75%      8
-  80%      9
-  90%     13
-  95%     19
-  98%     30
-  99%     40
- 100%     95 (longest request)
+  50%      3
+  66%      4
+  75%      4
+  80%      4
+  90%      5
+  95%      6
+  98%      8
+  99%     13
+ 100%     57 (longest request)
