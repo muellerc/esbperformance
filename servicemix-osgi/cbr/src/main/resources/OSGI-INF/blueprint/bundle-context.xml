@@ -15,18 +15,16 @@
   See the License for the specific language governing permissions and
   limitations under the License.
 -->
-<beans xmlns="http://www.springframework.org/schema/beans"
+<blueprint xmlns="http://www.osgi.org/xmlns/blueprint/v1.0.0"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:camel="http://camel.apache.org/schema/spring"
-    xmlns:cxf="http://camel.apache.org/schema/cxf"
+    xmlns:camel="http://camel.apache.org/schema/blueprint"
+    xmlns:cxf="http://camel.apache.org/schema/blueprint/cxf"
     xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
     xmlns:r="http://someuri"
     xsi:schemaLocation="
-       http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
-       http://camel.apache.org/schema/spring http://camel.apache.org/schema/spring/camel-spring.xsd
-       http://camel.apache.org/schema/cxf http://camel.apache.org/schema/cxf/camel-cxf.xsd">
+       http://www.osgi.org/xmlns/blueprint/v1.0.0 http://www.osgi.org/xmlns/blueprint/v1.0.0/blueprint.xsd">
 
-    <import resource="classpath:META-INF/cxf/cxf.xml" />
+<!--     <import resource="classpath:META-INF/cxf/cxf.xml" /> -->
 
     <cxf:cxfEndpoint id="cbrProxy"
         address="/CBRProxy"
@@ -53,13 +51,13 @@
         </cxf:properties>
     </cxf:cxfEndpoint>
 
-    <camelContext xmlns="http://camel.apache.org/schema/spring">
-        <route streamCache="true">
-            <from uri="cxf:bean:cbrProxy" />
-            <filter>
-                <xquery>/soapenv:Envelope/soapenv:Body/m:buyStocks/order[1]/symbol='IBM'</xquery>
-                <to uri="cxf:bean:echoService" />
-            </filter>
-        </route>
-    </camelContext>
-</beans>
+    <camel:camelContext>
+        <camel:route streamCache="true">
+            <camel:from uri="cxf:bean:cbrProxy" />
+            <camel:filter>
+                <camel:xquery>/soapenv:Envelope/soapenv:Body/m:buyStocks/order[1]/symbol='IBM'</camel:xquery>
+                <camel:to uri="cxf:bean:echoService" />
+            </camel:filter>
+        </camel:route>
+    </camel:camelContext>
+</blueprint>
