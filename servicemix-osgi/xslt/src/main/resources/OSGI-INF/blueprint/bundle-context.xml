@@ -15,24 +15,22 @@
   See the License for the specific language governing permissions and
   limitations under the License.
 -->
-<beans xmlns="http://www.springframework.org/schema/beans"
+<blueprint xmlns="http://www.osgi.org/xmlns/blueprint/v1.0.0"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:camel="http://camel.apache.org/schema/spring"
-    xmlns:cxf="http://camel.apache.org/schema/cxf"
+    xmlns:camel="http://camel.apache.org/schema/blueprint"
+    xmlns:cxf="http://camel.apache.org/schema/blueprint/cxf"
     xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
-    xmlns:m="http://services.samples/xsd"
+    xmlns:r="http://someuri"
     xsi:schemaLocation="
-       http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
-       http://camel.apache.org/schema/spring http://camel.apache.org/schema/spring/camel-spring.xsd
-       http://camel.apache.org/schema/cxf http://camel.apache.org/schema/cxf/camel-cxf.xsd">
+       http://www.osgi.org/xmlns/blueprint/v1.0.0 http://www.osgi.org/xmlns/blueprint/v1.0.0/blueprint.xsd
+       http://camel.apache.org/schema/blueprint http://camel.apache.org/schema/blueprint/camel-blueprint.xsd
+       http://camel.apache.org/schema/blueprint/cxf http://camel.apache.org/schema/cxf/camel-cxf-2.10.1-blueprint.xsd">
 
-    <import resource="classpath:META-INF/cxf/cxf.xml" />
-
-    <cxf:cxfEndpoint id="cbrProxy"
-        address="/CBRSOAPHeaderProxy"
-        endpointName="service:CBRSOAPHeaderEchoServicePort"
-        serviceName="service:CBRSOAPHeaderProxy"
-        wsdlURL="META-INF/wsdl/HBRSoapWSDL-consumer-embedded.wsdl"
+    <cxf:cxfEndpoint id="xsltProxy"
+        address="/XSLTProxy"
+        endpointName="service:EchoServicePort"
+        serviceName="service:XSLTProxy"
+        wsdlURL="META-INF/wsdl/TransformerWSDL-consumer-embedded.wsdl"
         xmlns:service="http://services.samples/xsd">
         
         <cxf:properties>
@@ -42,10 +40,10 @@
 
     <cxf:cxfEndpoint id="echoService"
         address="http://localhost:9000/service/EchoService"
-        endpointName="service:HBRSoapEchoServicePort"
-        serviceName="service:HBRSoapEchoService"
-        wsdlURL="META-INF/wsdl/HBRSoapWSDL-provider-embedded.wsdl"
-        bindingId="service:EchoServiceSOAP11Binding"
+        endpointName="service:EchoServicePort"
+        serviceName="service:XSLTEchoService"
+        wsdlURL="META-INF/wsdl/TransformerWSDL-provider-embedded.wsdl"
+        bindingId="s:EchoServiceSOAP11Binding"
         xmlns:service="http://services.samples/xsd">
         
         <cxf:properties>
@@ -53,13 +51,14 @@
         </cxf:properties>
     </cxf:cxfEndpoint>
 
+    <bean id="transformerFactoryImpl" class="net.sf.saxon.TransformerFactoryImpl" />
+
     <camelContext xmlns="http://camel.apache.org/schema/spring">
-        <route streamCache="true">
-            <from uri="cxf:bean:cbrProxy" />
-            <filter>
-                <xquery>/soapenv:Envelope/soapenv:Header/r:routing='xadmin;server1;community#1.0##'</xquery>
-                <to uri="cxf:bean:echoService" />
-            </filter>
+        <route>
+            <from uri="cxf:bean:xsltProxy" />
+            <to uri="xslt://META-INF/xslt/transform.xslt?transformerFactory=#transformerFactoryImpl" />
+            <to uri="cxf:bean:echoService" />
+            <to uri="xslt://META-INF/xslt/transform_back.xslt?transformerFactory=#transformerFactoryImpl" />
         </route>
     </camelContext>
-</beans>
+</blueprint>

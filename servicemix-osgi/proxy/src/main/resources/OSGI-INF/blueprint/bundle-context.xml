@@ -15,22 +15,22 @@
   See the License for the specific language governing permissions and
   limitations under the License.
 -->
-<beans xmlns="http://www.springframework.org/schema/beans"
+<blueprint xmlns="http://www.osgi.org/xmlns/blueprint/v1.0.0"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:camel="http://camel.apache.org/schema/spring"
-    xmlns:cxf="http://camel.apache.org/schema/cxf"
+    xmlns:camel="http://camel.apache.org/schema/blueprint"
+    xmlns:cxf="http://camel.apache.org/schema/blueprint/cxf"
+    xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+    xmlns:r="http://someuri"
     xsi:schemaLocation="
-       http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
-       http://camel.apache.org/schema/spring http://camel.apache.org/schema/spring/camel-spring.xsd
-       http://camel.apache.org/schema/cxf http://camel.apache.org/schema/cxf/camel-cxf.xsd">
+       http://www.osgi.org/xmlns/blueprint/v1.0.0 http://www.osgi.org/xmlns/blueprint/v1.0.0/blueprint.xsd
+       http://camel.apache.org/schema/blueprint http://camel.apache.org/schema/blueprint/camel-blueprint.xsd
+       http://camel.apache.org/schema/blueprint/cxf http://camel.apache.org/schema/cxf/camel-cxf-2.10.1-blueprint.xsd">
 
-    <import resource="classpath:META-INF/cxf/cxf.xml" />
-
-    <cxf:cxfEndpoint id="xsltProxy"
-        address="/XSLTProxy"
+    <cxf:cxfEndpoint id="directProxy"
+        address="/DirectProxy"
         endpointName="service:EchoServicePort"
-        serviceName="service:XSLTProxy"
-        wsdlURL="META-INF/wsdl/TransformerWSDL-consumer-embedded.wsdl"
+        serviceName="service:DirectProxy"
+        wsdlURL="META-INF/wsdl/ProxyWSDL-consumer-embedded.wsdl"
         xmlns:service="http://services.samples/xsd">
         
         <cxf:properties>
@@ -41,9 +41,9 @@
     <cxf:cxfEndpoint id="echoService"
         address="http://localhost:9000/service/EchoService"
         endpointName="service:EchoServicePort"
-        serviceName="service:XSLTEchoService"
-        wsdlURL="META-INF/wsdl/TransformerWSDL-provider-embedded.wsdl"
-        bindingId="s:EchoServiceSOAP11Binding"
+        serviceName="service:ProxyEchoService"
+        wsdlURL="META-INF/wsdl/ProxyWSDL-provider-embedded.wsdl"
+        bindingId="service:EchoServiceSOAP11Binding"
         xmlns:service="http://services.samples/xsd">
         
         <cxf:properties>
@@ -51,14 +51,10 @@
         </cxf:properties>
     </cxf:cxfEndpoint>
 
-    <bean id="transformerFactoryImpl" class="net.sf.saxon.TransformerFactoryImpl" />
-
     <camelContext xmlns="http://camel.apache.org/schema/spring">
-        <route>
-            <from uri="cxf:bean:xsltProxy" />
-            <to uri="xslt://META-INF/xslt/transform.xslt?transformerFactory=#transformerFactoryImpl" />
+        <route id="cxf-direct-proxy">
+            <from uri="cxf:bean:directProxy" />
             <to uri="cxf:bean:echoService" />
-            <to uri="xslt://META-INF/xslt/transform_back.xslt?transformerFactory=#transformerFactoryImpl" />
         </route>
     </camelContext>
-</beans>
+</blueprint>

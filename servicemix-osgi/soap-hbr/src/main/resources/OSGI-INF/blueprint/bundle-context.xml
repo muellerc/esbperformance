@@ -15,22 +15,22 @@
   See the License for the specific language governing permissions and
   limitations under the License.
 -->
-<beans xmlns="http://www.springframework.org/schema/beans"
+<blueprint xmlns="http://www.osgi.org/xmlns/blueprint/v1.0.0"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:camel="http://camel.apache.org/schema/spring"
-    xmlns:cxf="http://camel.apache.org/schema/cxf"
+    xmlns:camel="http://camel.apache.org/schema/blueprint"
+    xmlns:cxf="http://camel.apache.org/schema/blueprint/cxf"
+    xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+    xmlns:r="http://someuri"
     xsi:schemaLocation="
-       http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
-       http://camel.apache.org/schema/spring http://camel.apache.org/schema/spring/camel-spring.xsd
-       http://camel.apache.org/schema/cxf http://camel.apache.org/schema/cxf/camel-cxf.xsd">
+       http://www.osgi.org/xmlns/blueprint/v1.0.0 http://www.osgi.org/xmlns/blueprint/v1.0.0/blueprint.xsd
+       http://camel.apache.org/schema/blueprint http://camel.apache.org/schema/blueprint/camel-blueprint.xsd
+       http://camel.apache.org/schema/blueprint/cxf http://camel.apache.org/schema/cxf/camel-cxf-2.10.1-blueprint.xsd">
 
-    <import resource="classpath:META-INF/cxf/cxf.xml" />
-
-    <cxf:cxfEndpoint id="directProxy"
-        address="/DirectProxy"
-        endpointName="service:EchoServicePort"
-        serviceName="service:DirectProxy"
-        wsdlURL="META-INF/wsdl/ProxyWSDL-consumer-embedded.wsdl"
+    <cxf:cxfEndpoint id="cbrProxy"
+        address="/CBRSOAPHeaderProxy"
+        endpointName="service:CBRSOAPHeaderEchoServicePort"
+        serviceName="service:CBRSOAPHeaderProxy"
+        wsdlURL="META-INF/wsdl/HBRSoapWSDL-consumer-embedded.wsdl"
         xmlns:service="http://services.samples/xsd">
         
         <cxf:properties>
@@ -40,9 +40,9 @@
 
     <cxf:cxfEndpoint id="echoService"
         address="http://localhost:9000/service/EchoService"
-        endpointName="service:EchoServicePort"
-        serviceName="service:ProxyEchoService"
-        wsdlURL="META-INF/wsdl/ProxyWSDL-provider-embedded.wsdl"
+        endpointName="service:HBRSoapEchoServicePort"
+        serviceName="service:HBRSoapEchoService"
+        wsdlURL="META-INF/wsdl/HBRSoapWSDL-provider-embedded.wsdl"
         bindingId="service:EchoServiceSOAP11Binding"
         xmlns:service="http://services.samples/xsd">
         
@@ -52,9 +52,12 @@
     </cxf:cxfEndpoint>
 
     <camelContext xmlns="http://camel.apache.org/schema/spring">
-        <route id="cxf-direct-proxy">
-            <from uri="cxf:bean:directProxy" />
-            <to uri="cxf:bean:echoService" />
+        <route streamCache="true">
+            <from uri="cxf:bean:cbrProxy" />
+            <filter>
+                <xquery>/soapenv:Envelope/soapenv:Header/r:routing='xadmin;server1;community#1.0##'</xquery>
+                <to uri="cxf:bean:echoService" />
+            </filter>
         </route>
     </camelContext>
-</beans>
+</blueprint>

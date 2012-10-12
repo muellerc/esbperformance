@@ -33,6 +33,11 @@
     <dependencies>
         <dependency>
             <groupId>org.apache.camel</groupId>
+            <artifactId>camel-blueprint</artifactId>
+            <version>${org.apache.camel.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.camel</groupId>
             <artifactId>camel-cxf</artifactId>
             <version>${org.apache.camel.version}</version>
         </dependency>
@@ -41,16 +46,11 @@
             <artifactId>camel-saxon</artifactId>
             <version>${org.apache.camel.version}</version>
         </dependency>
-        <dependency>
-            <groupId>org.apache.camel</groupId>
-            <artifactId>camel-spring</artifactId>
-            <version>${org.apache.camel.version}</version>
-        </dependency>
         
         <!-- test dependencies -->
         <dependency>
             <groupId>org.apache.camel</groupId>
-            <artifactId>camel-test-spring</artifactId>
+            <artifactId>camel-test-blueprint</artifactId>
             <version>${org.apache.camel.version}</version>
             <scope>test</scope>
         </dependency>
@@ -69,7 +69,7 @@
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-log4j12</artifactId>
-            <version>1.6.6</version>
+            <version>1.5.11</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
