@@ -32,18 +32,13 @@
     <dependencies>
         <dependency>
             <groupId>org.apache.camel</groupId>
-            <artifactId>camel-blueprint</artifactId>
-            <version>${org.apache.camel.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.camel</groupId>
             <artifactId>camel-cxf</artifactId>
             <version>${org.apache.camel.version}</version>
         </dependency>
     <dependency>
         <groupId>org.apache.ws.security</groupId>
         <artifactId>wss4j</artifactId>
-        <version>1.5.11</version>
+        <version>1.6.7</version>
     </dependency>
     </dependencies>
 

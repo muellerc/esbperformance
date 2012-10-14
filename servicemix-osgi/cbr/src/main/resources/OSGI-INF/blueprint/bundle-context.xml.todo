@@ -17,44 +17,50 @@
 -->
 <blueprint xmlns="http://www.osgi.org/xmlns/blueprint/v1.0.0"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:cm="http://aries.apache.org/blueprint/xmlns/blueprint-cm/v1.0.0"
     xmlns:camel="http://camel.apache.org/schema/blueprint"
-    xmlns:cxf="http://camel.apache.org/schema/blueprint/cxf"
+    xmlns:camel-cxf="http://camel.apache.org/schema/blueprint/cxf"
+    xmlns:cxf="http://cxf.apache.org/blueprint/core"
     xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
-    xmlns:r="http://someuri"
+    xmlns:s="http://services.samples/xsd"
     xsi:schemaLocation="
        http://www.osgi.org/xmlns/blueprint/v1.0.0 http://www.osgi.org/xmlns/blueprint/v1.0.0/blueprint.xsd
-       http://camel.apache.org/schema/blueprint http://camel.apache.org/schema/blueprint/camel-blueprint.xsd
-       http://camel.apache.org/schema/blueprint/cxf http://camel.apache.org/schema/cxf/camel-cxf-2.10.1-blueprint.xsd">
+       http://camel.apache.org/schema/blueprint http://camel.apache.org/schema/blueprint/camel-blueprint.xsd">
 
-    <cxf:cxfEndpoint id="directProxy"
-        address="/DirectProxy"
-        endpointName="service:EchoServicePort"
-        serviceName="service:DirectProxy"
-        wsdlURL="META-INF/wsdl/ProxyWSDL-consumer-embedded.wsdl"
+    <camel-cxf:cxfEndpoint id="cbrProxy"
+        address="/CBRProxy"
+        endpointName="service:CBREchoServicePort"
+        serviceName="service:CBRProxy"
+        wsdlURL="META-INF/wsdl/CBRWSDL-consumer-embedded.wsdl"
         xmlns:service="http://services.samples/xsd">
         
-        <cxf:properties>
+        <camel-cxf:properties>
             <entry key="dataFormat" value="MESSAGE" />
-        </cxf:properties>
-    </cxf:cxfEndpoint>
+        </camel-cxf:properties>
+    </camel-cxf:cxfEndpoint>
 
-    <cxf:cxfEndpoint id="echoService"
+    <camel-cxf:cxfEndpoint id="echoService"
         address="http://localhost:9000/service/EchoService"
-        endpointName="service:EchoServicePort"
-        serviceName="service:ProxyEchoService"
-        wsdlURL="META-INF/wsdl/ProxyWSDL-provider-embedded.wsdl"
+        endpointName="service:CBREchoServicePort"
+        serviceName="service:CBREchoService"
+        wsdlURL="META-INF/wsdl/CBRWSDL-provider-embedded.wsdl"
         bindingId="service:EchoServiceSOAP11Binding"
         xmlns:service="http://services.samples/xsd">
         
-        <cxf:properties>
+        <camel-cxf:properties>
             <entry key="dataFormat" value="MESSAGE" />
-        </cxf:properties>
-    </cxf:cxfEndpoint>
+        </camel-cxf:properties>
+    </camel-cxf:cxfEndpoint>
 
-    <camelContext xmlns="http://camel.apache.org/schema/spring">
-        <route id="cxf-direct-proxy">
-            <from uri="cxf:bean:directProxy" />
-            <to uri="cxf:bean:echoService" />
-        </route>
-    </camelContext>
+    <camel:camelContext>
+        <jmxAgent id="agent" disabled="true"/>
+
+        <route id="cxf-content-proxy">
+            <camel:from uri="cxf:bean:cbrProxy" />
+            <camel:filter>
+                <camel:xquery>/soapenv:Envelope/soapenv:Body/s:buyStocks/order[1]/symbol='IBM'</camel:xquery>
+                <camel:to uri="cxf:bean:echoService" />
+            </camel:filter>
+        </camel:route>
+    </camel:camelContext>
 </blueprint>

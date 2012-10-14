@@ -1,0 +1,58 @@
+Christian-Muellers-MacBook-Pro:proxy cmueller$ /usr/sbin/httpd2.4/bin/ab -n 5000 -c 20 -p 1K_buyStocks.xml -T text/xml http://localhost:8192/service/DirectProxy
+This is ApacheBench, Version 2.3 <$Revision: 1373084 $>
+Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
+Licensed to The Apache Software Foundation, http://www.apache.org/
+
+Benchmarking localhost (be patient)
+Completed 500 requests
+Completed 1000 requests
+Completed 1500 requests
+Completed 2000 requests
+Completed 2500 requests
+Completed 3000 requests
+Completed 3500 requests
+Completed 4000 requests
+Completed 4500 requests
+Completed 5000 requests
+Finished 5000 requests
+
+
+Server Software:        Apache-Coyote/1.1
+Server Hostname:        localhost
+Server Port:            8192
+
+Document Path:          /service/DirectProxy
+Document Length:        1024 bytes
+
+Concurrency Level:      20
+Time taken for tests:   2.922 seconds
+Complete requests:      5000
+Failed requests:        0
+Write errors:           0
+Total transferred:      6384488 bytes
+Total body sent:        5860000
+HTML transferred:       5120000 bytes
+Requests per second:    1710.92 [#/sec] (mean)
+Time per request:       11.690 [ms] (mean)
+Time per request:       0.584 [ms] (mean, across all concurrent requests)
+Transfer rate:          2133.47 [Kbytes/sec] received
+                        1958.20 kb/s sent
+                        4091.67 kb/s total
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:        0    1   1.8      1      22
+Processing:     1   10   3.7     10      37
+Waiting:        0    9   3.7      9      36
+Total:          2   12   3.5     11      37
+
+Percentage of the requests served within a certain time (ms)
+  50%     11
+  66%     12
+  75%     12
+  80%     13
+  90%     15
+  95%     18
+  98%     23
+  99%     26
+ 100%     37 (longest request)

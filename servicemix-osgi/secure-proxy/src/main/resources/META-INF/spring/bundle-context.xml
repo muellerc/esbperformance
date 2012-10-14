@@ -15,16 +15,16 @@
   See the License for the specific language governing permissions and
   limitations under the License.
 -->
-<blueprint xmlns="http://www.osgi.org/xmlns/blueprint/v1.0.0"
+<beans xmlns="http://www.springframework.org/schema/beans"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:camel="http://camel.apache.org/schema/blueprint"
-    xmlns:cxf="http://camel.apache.org/schema/blueprint/cxf"
-    xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
-    xmlns:r="http://someuri"
+    xmlns:camel="http://camel.apache.org/schema/spring"
+    xmlns:cxf="http://camel.apache.org/schema/cxf"
     xsi:schemaLocation="
-       http://www.osgi.org/xmlns/blueprint/v1.0.0 http://www.osgi.org/xmlns/blueprint/v1.0.0/blueprint.xsd
-       http://camel.apache.org/schema/blueprint http://camel.apache.org/schema/blueprint/camel-blueprint.xsd
-       http://camel.apache.org/schema/blueprint/cxf http://camel.apache.org/schema/cxf/camel-cxf-2.10.1-blueprint.xsd">
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://camel.apache.org/schema/spring http://camel.apache.org/schema/spring/camel-spring.xsd
+        http://camel.apache.org/schema/cxf http://camel.apache.org/schema/cxf/camel-cxf.xsd">
+
+    <import resource="classpath:META-INF/cxf/cxf.xml" />
 
     <cxf:cxfEndpoint id="secureProxy"
         address="/SecureProxy"
@@ -34,9 +34,11 @@
         xmlns:service="http://services.samples/xsd">
 
         <cxf:inInterceptors>
+<!--             <bean class="org.apache.cxf.interceptor.LoggingInInterceptor"/> -->
             <ref bean="TimestampSignEncrypt_Request" />
         </cxf:inInterceptors>
         <cxf:outInterceptors>
+<!--             <bean class="org.apache.cxf.interceptor.LoggingOutInterceptor"/> -->
             <ref bean="TimestampSignEncrypt_Response" />
         </cxf:outInterceptors>
         <cxf:properties>
@@ -100,9 +102,11 @@
     </bean>
 
     <camelContext xmlns="http://camel.apache.org/schema/spring">
-        <route id="cxf-secure-proxy">
+        <jmxAgent id="agent" disabled="true"/>
+
+        <route id="cxf-secure-proxy" streamCache="true">
             <from uri="cxf:bean:secureProxy" />
             <to uri="cxf:bean:echoService" />
         </route>
     </camelContext>
-</blueprint>
+</beans>

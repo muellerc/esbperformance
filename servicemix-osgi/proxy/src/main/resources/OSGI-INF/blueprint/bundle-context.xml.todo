@@ -26,11 +26,11 @@
        http://camel.apache.org/schema/blueprint http://camel.apache.org/schema/blueprint/camel-blueprint.xsd
        http://camel.apache.org/schema/blueprint/cxf http://camel.apache.org/schema/cxf/camel-cxf-2.10.1-blueprint.xsd">
 
-    <cxf:cxfEndpoint id="cbrProxy"
-        address="/CBRProxy"
-        endpointName="service:CBREchoServicePort"
-        serviceName="service:CBRProxy"
-        wsdlURL="META-INF/wsdl/CBRWSDL-consumer-embedded.wsdl"
+    <cxf:cxfEndpoint id="directProxy"
+        address="/DirectProxy"
+        endpointName="service:EchoServicePort"
+        serviceName="service:DirectProxy"
+        wsdlURL="META-INF/wsdl/ProxyWSDL-consumer-embedded.wsdl"
         xmlns:service="http://services.samples/xsd">
         
         <cxf:properties>
@@ -40,9 +40,9 @@
 
     <cxf:cxfEndpoint id="echoService"
         address="http://localhost:9000/service/EchoService"
-        endpointName="service:CBREchoServicePort"
-        serviceName="service:CBREchoService"
-        wsdlURL="META-INF/wsdl/CBRWSDL-provider-embedded.wsdl"
+        endpointName="service:EchoServicePort"
+        serviceName="service:ProxyEchoService"
+        wsdlURL="META-INF/wsdl/ProxyWSDL-provider-embedded.wsdl"
         bindingId="service:EchoServiceSOAP11Binding"
         xmlns:service="http://services.samples/xsd">
         
@@ -50,26 +50,13 @@
             <entry key="dataFormat" value="MESSAGE" />
         </cxf:properties>
     </cxf:cxfEndpoint>
-    
-    <bean id="vtdXmlXPathBuilder" class="org.apache.camel.component.vtdxml.VtdXmlXPathBuilder">
-        <constructor-arg value="/soapenv:Envelope/soapenv:Body/m:buyStocks/order[1]/symbol='IBM'" />
-        <property name="namespaces">
-            <map>
-                <entry key="soapenv" value="http://schemas.xmlsoap.org/soap/envelope/" />
-                <entry key="m" value="http://someuri" />
-            </map>
-        </property>
-    </bean>
 
     <camelContext xmlns="http://camel.apache.org/schema/spring">
-        <route streamCache="true">
-            <from uri="cxf:bean:cbrProxy" />
-            <filter>
-                <method bean="vtdXmlXPathBuilder" method="matches"/>
-<!--                 <language language="vtdxml">/soapenv:Envelope/soapenv:Body/m:buyStocks/order[1]/symbol='IBM'</language> -->
-<!--                 <vtdxml>/soapenv:Envelope/soapenv:Body/m:buyStocks/order[1]/symbol='IBM'</vtdxml> -->
-                <to uri="cxf:bean:echoService" />
-            </filter>
+        <jmxAgent id="agent" disabled="true"/>
+        
+        <route id="cxf-direct-proxy">
+            <from uri="cxf:bean:directProxy" />
+            <to uri="cxf:bean:echoService" />
         </route>
     </camelContext>
 </blueprint>
