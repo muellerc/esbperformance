@@ -13,6 +13,7 @@ Increase heap memory by editing ${SMX_HOME}/bin/servicemix to read as follows:
     JAVA_MAX_MEM=2048M
     
 Copy servicemix-osgi/etc/* into ${SMX_HOME}/etc
+Copy servicemix-osgi/patch/apache-cxf-2.6.2-features.xml into ${SMX_HOME}/system/org/apache/cxf/karaf/apache-cxf/
     
 Make sure you remove the ${SMX_HOME}/data directory if you already started SMX before!
 
