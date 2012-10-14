@@ -20,7 +20,7 @@
     xmlns:camel="http://camel.apache.org/schema/spring"
     xmlns:cxf="http://camel.apache.org/schema/cxf"
     xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
-    xmlns:r="http://someuri"
+    xmlns:s="http://services.samples/xsd"
     xsi:schemaLocation="
        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
        http://camel.apache.org/schema/spring http://camel.apache.org/schema/spring/camel-spring.xsd
@@ -54,10 +54,12 @@
     </cxf:cxfEndpoint>
 
     <camelContext xmlns="http://camel.apache.org/schema/spring">
-        <route streamCache="true">
+        <jmxAgent id="agent" disabled="true"/>
+
+        <route id="cxf-content-proxy" streamCache="true">
             <from uri="cxf:bean:cbrProxy" />
             <filter>
-                <xquery>/soapenv:Envelope/soapenv:Body/m:buyStocks/order[1]/symbol='IBM'</xquery>
+                <xquery>/soapenv:Envelope/soapenv:Body/s:buyStocks/order[1]/symbol='IBM'</xquery>
                 <to uri="cxf:bean:echoService" />
             </filter>
         </route>

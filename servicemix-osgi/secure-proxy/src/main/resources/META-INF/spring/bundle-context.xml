@@ -100,7 +100,9 @@
     </bean>
 
     <camelContext xmlns="http://camel.apache.org/schema/spring">
-        <route id="cxf-secure-proxy">
+        <jmxAgent id="agent" disabled="true"/>
+
+        <route id="cxf-secure-proxy" streamCache="true">
             <from uri="cxf:bean:secureProxy" />
             <to uri="cxf:bean:echoService" />
         </route>

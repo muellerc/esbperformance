@@ -52,7 +52,9 @@
     </cxf:cxfEndpoint>
 
     <camelContext xmlns="http://camel.apache.org/schema/spring">
-        <route streamCache="true">
+        <jmxAgent id="agent" disabled="true"/>
+        
+        <route id="cxf-transport-header-proxy">
             <from uri="cxf:bean:cbrProxy" />
             <filter>
                 <simple>${in.header.routing} == 'xadmin;server1;community#1.0##'</simple>

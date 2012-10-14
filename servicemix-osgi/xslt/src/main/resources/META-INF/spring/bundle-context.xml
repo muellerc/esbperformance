@@ -54,11 +54,13 @@
     <bean id="transformerFactoryImpl" class="net.sf.saxon.TransformerFactoryImpl" />
 
     <camelContext xmlns="http://camel.apache.org/schema/spring">
-        <route>
+        <jmxAgent id="agent" disabled="true"/>
+
+        <route id="cxf-xslt-proxy">
             <from uri="cxf:bean:xsltProxy" />
-            <to uri="xslt://META-INF/xslt/transform.xslt?transformerFactory=#transformerFactoryImpl&amp;allowStAX=true" />
+            <to uri="xslt:transform.xslt?transformerFactory=#transformerFactoryImpl" />
             <to uri="cxf:bean:echoService" />
-            <to uri="xslt://META-INF/xslt/transform_back.xslt?transformerFactory=#transformerFactoryImpl&amp;allowStAX=true" />
+            <to uri="xslt:transform_back.xslt?transformerFactory=#transformerFactoryImpl" />
         </route>
     </camelContext>
 </beans>

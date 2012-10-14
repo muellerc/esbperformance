@@ -52,6 +52,8 @@
     </cxf:cxfEndpoint>
 
     <camelContext xmlns="http://camel.apache.org/schema/spring">
+        <jmxAgent id="agent" disabled="true"/>
+        
         <route id="cxf-direct-proxy">
             <from uri="cxf:bean:directProxy" />
             <to uri="cxf:bean:echoService" />

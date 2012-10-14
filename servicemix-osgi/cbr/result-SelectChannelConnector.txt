@@ -1,0 +1,58 @@
+christian-muellers-macbook-pro:cbr cmueller$ /usr/sbin/httpd2.4/bin/ab -n 5000 -c 20 -p 1K_buyStocks.xml -T text/xml http://localhost:8192/service/CBRProxy
+This is ApacheBench, Version 2.3 <$Revision: 1373084 $>
+Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
+Licensed to The Apache Software Foundation, http://www.apache.org/
+
+Benchmarking localhost (be patient)
+Completed 500 requests
+Completed 1000 requests
+Completed 1500 requests
+Completed 2000 requests
+Completed 2500 requests
+Completed 3000 requests
+Completed 3500 requests
+Completed 4000 requests
+Completed 4500 requests
+Completed 5000 requests
+Finished 5000 requests
+
+
+Server Software:        Apache-Coyote/1.1
+Server Hostname:        localhost
+Server Port:            8192
+
+Document Path:          /service/CBRProxy
+Document Length:        1024 bytes
+
+Concurrency Level:      20
+Time taken for tests:   2.568 seconds
+Complete requests:      5000
+Failed requests:        0
+Write errors:           0
+Total transferred:      6490000 bytes
+Total body sent:        5845000
+HTML transferred:       5120000 bytes
+Requests per second:    1946.90 [#/sec] (mean)
+Time per request:       10.273 [ms] (mean)
+Time per request:       0.514 [ms] (mean, across all concurrent requests)
+Transfer rate:          2467.85 [Kbytes/sec] received
+                        2222.58 kb/s sent
+                        4690.43 kb/s total
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:        0    1   1.8      1      14
+Processing:     1    9   2.8      9      30
+Waiting:        0    8   2.7      8      30
+Total:          2   10   2.7     10      36
+
+Percentage of the requests served within a certain time (ms)
+  50%     10
+  66%     10
+  75%     11
+  80%     11
+  90%     13
+  95%     16
+  98%     20
+  99%     21
+ 100%     36 (longest request)
