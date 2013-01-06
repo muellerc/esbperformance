@@ -14,7 +14,7 @@ Increase heap memory by editing ${KARAF_HOME}/bin/karaf to read as follows:
     JAVA_MAX_MEM=2048M
     
 Copy karaf/etc/* into ${KARAF_HOME}/etc
-
+Copy karaf/system/* into ${KARAF_HOME}/system/*
 
 
 INSTALLATION
