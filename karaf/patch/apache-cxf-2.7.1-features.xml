@@ -58,7 +58,7 @@
         <bundle start-level='35'>mvn:org.apache.abdera/abdera-extensions-json/1.1.2</bundle>-->
     </feature>
 
-    <feature name="wss4j" version="1.6.8" resolver='(obr)'>
+    <feature name="wss4j" version="1.6.9" resolver='(obr)'>
         <feature version="2.7.1">cxf-specs</feature>
         <bundle start-level='25' dependency="true">mvn:joda-time/joda-time/1.6.2</bundle>
         <bundle start-level='25' dependency="true">mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.opensaml/2.5.1_2</bundle>
@@ -68,7 +68,7 @@
         <bundle start-level='30' dependency="true">mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.bcel/5.2_4</bundle>
         <bundle start-level='30' dependency="true">mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.xalan/2.7.1_5</bundle>
         <bundle start-level='30' dependency="true">mvn:org.apache.santuario/xmlsec/1.5.3</bundle>
-        <bundle start-level='30'>mvn:org.apache.ws.security/wss4j/1.6.8</bundle>
+        <bundle start-level='30'>mvn:org.apache.ws.security/wss4j/1.6.9</bundle>
     </feature>
 
     <feature name="cxf-core" version="2.7.1" resolver='(obr)'>
@@ -109,14 +109,14 @@
     </feature>
     <feature name="cxf-ws-security" version="2.7.1" resolver='(obr)'>
         <feature version="2.7.1">cxf-ws-policy</feature>
-        <feature version="1.6.8">wss4j</feature>
+        <feature version="1.6.9">wss4j</feature>
         <feature version="2.7.1">cxf-ws-addr</feature>
         <bundle start-level='40' dependency="true">mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.ehcache/2.5.1_1</bundle>
         <bundle start-level='40'>mvn:org.apache.cxf/cxf-rt-ws-security/2.7.1</bundle>
     </feature>
     <feature name="cxf-rt-security" version="2.7.1" resolver='(obr)'>
         <feature version="2.7.1">cxf-core</feature>
-        <feature version="1.6.8">wss4j</feature>
+        <feature version="1.6.9">wss4j</feature>
         <bundle start-level='40'>mvn:org.apache.cxf/cxf-rt-security/2.7.1</bundle>
     </feature>
     <feature name="cxf-http" version="2.7.1" resolver='(obr)'>
@@ -164,7 +164,7 @@
 
     <feature name="cxf-rs-security-xml" version="2.7.1" resolver='(obr)'>
         <feature version="2.7.1">cxf-jaxrs</feature>
-        <feature version="1.6.8">wss4j</feature>
+        <feature version="1.6.9">wss4j</feature>
         <bundle start-level='40'>mvn:org.apache.cxf/cxf-rt-rs-security-xml/2.7.1</bundle>
     </feature>
 

@@ -14,7 +14,11 @@ Increase heap memory by editing ${KARAF_HOME}/bin/karaf to read as follows:
     JAVA_MAX_MEM=2048M
     
 Copy karaf/etc/* into ${KARAF_HOME}/etc
-Copy karaf/system/* into ${KARAF_HOME}/system/*
+Copy servicemix-osgi/patch/apache-cxf-2.1.1-features.xml into ${SMX_HOME}/system/org/apache/cxf/karaf/apache-cxf/2.7.1/ (this fixed some required dependency and upgrade to wss4j 1.6.9)
+Copy servicemix-osgi/patch/standard-2.3.0-features.xml into ${SMX_HOME}/system/org/apache/karaf/assemblies/features/standard/2.3.0/ (upgrade to ServiceMix Specs 2.2.0)
+Edit ${SMX_HOME}/etc/jetty.xml:
+    Replace the '8' in '<Set name="Acceptors">8</Set>' with the number of available cores (e.g. '2' for an Intel Core 2 Duo)
+
 
 
 INSTALLATION
