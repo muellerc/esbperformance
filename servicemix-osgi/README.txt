@@ -11,10 +11,13 @@ Use Maven 3.x to build the artifacts as:
 Increase heap memory by editing ${SMX_HOME}/bin/servicemix to read as follows:
     JAVA_MIN_MEM=2048M
     JAVA_MAX_MEM=2048M
-    
+
+Rename ${SMX_HOME}/etc/activemq-broker.xml to ${SMX_HOME}/etc/activemq-broker.xml.disabled
 Copy servicemix-osgi/etc/* into ${SMX_HOME}/etc
-Copy servicemix-osgi/patch/apache-cxf-2.6.2-features.xml into ${SMX_HOME}/system/org/apache/cxf/karaf/apache-cxf/
-    
+Copy servicemix-osgi/patch/apache-cxf-2.6.3-features.xml into ${SMX_HOME}/system/org/apache/cxf/karaf/apache-cxf/2.6.3/ (this fixed some required dependency)
+Edit ${SMX_HOME}/etc/jetty.xml:
+    Replace the '8' in '<Set name="Acceptors">8</Set>' with the number of available cores (e.g. '2' for an Intel Core 2 Duo)
+
 Make sure you remove the ${SMX_HOME}/data directory if you already started SMX before!
 
 
