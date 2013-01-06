@@ -12,9 +12,10 @@ Increase heap memory by editing ${SMX_HOME}/bin/servicemix to read as follows:
     JAVA_MIN_MEM=2048M
     JAVA_MAX_MEM=2048M
 
-Rename ${SMX_HOME}/etc/activemq-broker.xml to ${SMX_HOME}/etc/activemq-broker.xml.disabled
+Rename ${SMX_HOME}/etc/activemq-broker.xml to ${SMX_HOME}/etc/activemq-broker.xml.disabled (we do not need/use ActiveMQ)
 Copy servicemix-osgi/etc/* into ${SMX_HOME}/etc
-Copy servicemix-osgi/patch/apache-cxf-2.6.3-features.xml into ${SMX_HOME}/system/org/apache/cxf/karaf/apache-cxf/2.6.3/ (this fixed some required dependency)
+Copy servicemix-osgi/patch/apache-camel-2.10.3-features.xml into ${SMX_HOME}/system/org/apache/camel/karaf/apache-camel/2.10.3/ (this fixed upgrade to CXF 2.6.4)
+Copy servicemix-osgi/patch/apache-cxf-2.6.4-features.xml into ${SMX_HOME}/system/org/apache/cxf/karaf/apache-cxf/2.6.4/ (this fixed some required dependency and upgrade to wss4j 1.6.9)
 Edit ${SMX_HOME}/etc/jetty.xml:
     Replace the '8' in '<Set name="Acceptors">8</Set>' with the number of available cores (e.g. '2' for an Intel Core 2 Duo)
 

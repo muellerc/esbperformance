@@ -29,7 +29,7 @@
     <groupId>org.apache.cmueller.camel.esbperf.servicemix-osgi</groupId>
     <artifactId>soap-hbr</artifactId>
     <packaging>bundle</packaging>
-    
+
     <dependencies>
         <dependency>
             <groupId>org.apache.camel</groupId>
