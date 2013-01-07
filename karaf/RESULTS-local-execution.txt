@@ -34,17 +34,17 @@ Server Port:				8192
 Document Path:				http://localhost:8192/service/DirectProxy
 Average Document Length:	1024 bytes
 Concurrency Level:			20
-Time taken for tests:		9.837351 seconds
+Time taken for tests:		11.930655 seconds
 Complete requests:			20000
 Failed requests:			0
 Write errors:				0
 Total transferred:			40960000 bytes
-Requests per second:		2,033.07 [#/sec] (mean)
-Time per request:			9.837 [ms] (mean)
-Time per request:			0.492 [ms] (mean, across all concurrent requests)
-Transfer rate:				2,081.86 [Kbytes/sec] received
-							2,081.86 kb/s sent
-							4,163.72 kb/s total
+Requests per second:		1,751.26 [#/sec] (mean)
+Time per request:			11.420 [ms] (mean)
+Time per request:			0.571 [ms] (mean, across all concurrent requests)
+Transfer rate:				1,793.29 [Kbytes/sec] received
+							1,793.29 kb/s sent
+							3,586.59 kb/s total
 
 
 Server Software:			SOA-Toolbox/1.5.0
@@ -53,36 +53,36 @@ Server Port:				8192
 Document Path:				http://localhost:8192/service/CBRProxy
 Average Document Length:	1024 bytes
 Concurrency Level:			20
-Time taken for tests:		11.102217 seconds
+Time taken for tests:		13.753753 seconds
 Complete requests:			20000
 Failed requests:			0
 Write errors:				0
 Total transferred:			40960000 bytes
-Requests per second:		1,820.09 [#/sec] (mean)
-Time per request:			10.988 [ms] (mean)
-Time per request:			0.549 [ms] (mean, across all concurrent requests)
-Transfer rate:				1,863.77 [Kbytes/sec] received
-							1,863.77 kb/s sent
-							3,727.54 kb/s total
+Requests per second:		1,490.76 [#/sec] (mean)
+Time per request:			13.416 [ms] (mean)
+Time per request:			0.671 [ms] (mean, across all concurrent requests)
+Transfer rate:				1,526.54 [Kbytes/sec] received
+							1,526.54 kb/s sent
+							3,053.08 kb/s total
 
 
 Server Software:			SOA-Toolbox/1.5.0
 Server Hostname:			localhost
 Server Port:				8192
 Document Path:				http://localhost:8192/service/CBRSOAPHeaderProxy
-Average Document Length:	1024 bytes
+Average Document Length:		1024 bytes
 Concurrency Level:			20
-Time taken for tests:		11.322299 seconds
+Time taken for tests:		13.556865 seconds
 Complete requests:			20000
 Failed requests:			0
 Write errors:				0
 Total transferred:			40960000 bytes
-Requests per second:		1,801.20 [#/sec] (mean)
-Time per request:			11.104 [ms] (mean)
-Time per request:			0.555 [ms] (mean, across all concurrent requests)
-Transfer rate:				1,844.43 [Kbytes/sec] received
-							1,844.43 kb/s sent
-							3,688.85 kb/s total
+Requests per second:		1,475.27 [#/sec] (mean)
+Time per request:			13.557 [ms] (mean)
+Time per request:			0.678 [ms] (mean, across all concurrent requests)
+Transfer rate:				1,510.67 [Kbytes/sec] received
+							1,510.67 kb/s sent
+							3,021.35 kb/s total
 
 
 Server Software:			SOA-Toolbox/1.5.0
@@ -91,36 +91,36 @@ Server Port:				8192
 Document Path:				http://localhost:8192/service/CBRTransportHeaderProxy
 Average Document Length:	1024 bytes
 Concurrency Level:			20
-Time taken for tests:		10.313702 seconds
+Time taken for tests:		11.802860 seconds
 Complete requests:			20000
 Failed requests:			0
 Write errors:				0
 Total transferred:			40960000 bytes
-Requests per second:		1,983.39 [#/sec] (mean)
-Time per request:			10.084 [ms] (mean)
-Time per request:			0.504 [ms] (mean, across all concurrent requests)
-Transfer rate:				2,030.99 [Kbytes/sec] received
-							2,030.99 kb/s sent
-							4,061.98 kb/s total
+Requests per second:		1,694.50 [#/sec] (mean)
+Time per request:			11.803 [ms] (mean)
+Time per request:			0.590 [ms] (mean, across all concurrent requests)
+Transfer rate:				1,735.17 [Kbytes/sec] received
+							1,735.17 kb/s sent
+							3,470.35 kb/s total
 
 
 Server Software:			SOA-Toolbox/1.5.0
 Server Hostname:			localhost
 Server Port:				8192
 Document Path:				http://localhost:8192/service/XSLTProxy
-Average Document Length:	1505 bytes
+Average Document Length:	1506 bytes
 Concurrency Level:			20
-Time taken for tests:		13.927997 seconds
+Time taken for tests:		16.741219 seconds
 Complete requests:			20000
 Failed requests:			0
 Write errors:				0
-Total transferred:			50580000 bytes
-Requests per second:		1,436.54 [#/sec] (mean)
-Time per request:			13.922 [ms] (mean)
-Time per request:			0.696 [ms] (mean, across all concurrent requests)
-Transfer rate:				2,162.00 [Kbytes/sec] received
-							1,471.02 kb/s sent
-							3,633.02 kb/s total
+Total transferred:			50600000 bytes
+Requests per second:		1,194.66 [#/sec] (mean)
+Time per request:			16.741 [ms] (mean)
+Time per request:			0.837 [ms] (mean, across all concurrent requests)
+Transfer rate:				1,799.15 [Kbytes/sec] received
+							1,223.33 kb/s sent
+							3,022.48 kb/s total
 
 
 Server Software:			SOA-Toolbox/1.5.0
@@ -129,14 +129,14 @@ Server Port:				8192
 Document Path:				http://localhost:8192/service/SecureProxy
 Average Document Length:	10818 bytes
 Concurrency Level:			20
-Time taken for tests:		78.776311 seconds
+Time taken for tests:		78.470280 seconds
 Complete requests:			20000
 Failed requests:			0
 Write errors:				0
-Total transferred:			342555020 bytes
-Requests per second:		260.24 [#/sec] (mean)
-Time per request:			76.853 [ms] (mean)
-Time per request:			3.843 [ms] (mean, across all concurrent requests)
-Transfer rate:				2,816.30 [Kbytes/sec] received
-							1,641.84 kb/s sent
-							4,458.15 kb/s total
+Total transferred:			342555003 bytes
+Requests per second:		254.87 [#/sec] (mean)
+Time per request:			78.470 [ms] (mean)
+Time per request:			3.924 [ms] (mean, across all concurrent requests)
+Transfer rate:				2,757.41 [Kbytes/sec] received
+							1,608.00 kb/s sent
+							4,365.41 kb/s total
