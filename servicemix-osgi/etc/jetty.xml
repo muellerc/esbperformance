@@ -29,7 +29,7 @@ DTD Configure//EN" "http://jetty.mortbay.org/configure.dtd">
                     <Property name="jetty.port" default="8192" />
                 </Set>
                 <Set name="maxIdleTime">300000</Set>
-                <Set name="Acceptors">2</Set>
+                <Set name="Acceptors">8</Set>
                 <Set name="statsOn">false</Set>
                 <Set name="confidentialPort">8443</Set>
                 <Set name="lowResourcesConnections">20000</Set>

@@ -1,4 +1,4 @@
-Apache ServiceMix 4.4.2 - powered by Camel
+Apache ServiceMix 4.4.2 - powered by Camel 2.8.x
 
 SETUP
 =====
@@ -12,7 +12,9 @@ Increase heap memory by editing ${SMX_HOME}/bin/servicemix to read as follows:
     JAVA_MAX_MEM=2048M
     
 Copy servicemix-osgi/etc/* into ${SMX_HOME}/etc
-Copy servicemix-osgi/patch/apache-cxf-2.4.6-features.xml into ${SMX_HOME}/system/org/apache/cxf/karaf/apache-cxf/
+Copy servicemix-osgi/patch/apache-cxf-2.4.6-features.xml into ${SMX_HOME}/system/org/apache/cxf/karaf/apache-cxf/2.4.6/
+Edit ${SMX_HOME}/etc/jetty.xml:
+    Replace the '8' in '<Set name="Acceptors">8</Set>' with the number of available cores (e.g. '2' for an Intel Core 2 Duo)
 
 
 
