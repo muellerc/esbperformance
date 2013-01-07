@@ -23,132 +23,119 @@ OS name: "mac os x", version: "10.8.2", arch: "x86_64", family: "mac"
 
 
 
-Server Software:		SOA-Toolbox/1.5.0
-Server Hostname:		localhost
-Server Port:			8192
+PERFORMANCETEST:
+Executing in directory /Applications/ultraesb-1.7.1/lib/samples
+Warm-up...
 
-Document Path:			http://localhost:8192/service/DirectProxy
-Average Document Length:		1024 bytes
-
-Concurrency Level:		20
+Server Software:			SOA-Toolbox/1.5.0
+Server Hostname:			localhost
+Server Port:				8192
+Document Path:				http://localhost:8192/service/DirectProxy
+Average Document Length:	1024 bytes
+Concurrency Level:			20
 Time taken for tests:		8.941916 seconds
-Complete requests:		20000
-Failed requests:		0
-Write errors:			0
-Total transferred:		40960000 bytes
-Requests per second:		2,236.66 [#/sec] (mean)
-Time per request:		8.942 [ms] (mean)
-Time per request:		0.447 [ms] (mean, across all concurrent requests)
-Transfer rate:			2,290.34 [Kbytes/sec] received
-				2,290.34 kb/s sent
-				4,580.67 kb/s total
-Running iteration 0
-Picked up JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF-8
+Complete requests:			20000
+Failed requests:			0
+Write errors:				0
+Total transferred:			40960000 bytes
+Requests per second:		2,346.46 [#/sec] (mean)
+Time per request:			8.523 [ms] (mean)
+Time per request:			0.426 [ms] (mean, across all concurrent requests)
+Transfer rate:				2,402.78 [Kbytes/sec] received
+							2,402.78 kb/s sent
+							4,805.56 kb/s total
 
-Server Software:		SOA-Toolbox/1.5.0
-Server Hostname:		localhost
-Server Port:			8192
 
-Document Path:			http://localhost:8192/service/CBRProxy
-Average Document Length:		1024 bytes
-
-Concurrency Level:		20
+Server Software:			SOA-Toolbox/1.5.0
+Server Hostname:			localhost
+Server Port:				8192
+Document Path:				http://localhost:8192/service/CBRProxy
+Average Document Length:	1024 bytes
+Concurrency Level:			20
 Time taken for tests:		10.122757 seconds
-Complete requests:		20000
-Failed requests:		0
-Write errors:			0
-Total transferred:		40960000 bytes
-Requests per second:		1,975.75 [#/sec] (mean)
-Time per request:		10.123 [ms] (mean)
-Time per request:		0.506 [ms] (mean, across all concurrent requests)
-Transfer rate:			2,023.16 [Kbytes/sec] received
-				2,023.16 kb/s sent
-				4,046.33 kb/s total
-Running iteration 0
-Picked up JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF-8
+Complete requests:			20000
+Failed requests:			0
+Write errors:				0
+Total transferred:			40960000 bytes
+Requests per second:		2,032.69 [#/sec] (mean)
+Time per request:			9.839 [ms] (mean)
+Time per request:			0.492 [ms] (mean, across all concurrent requests)
+Transfer rate:				2,081.48 [Kbytes/sec] received
+							2,081.48 kb/s sent
+							4,162.95 kb/s total
 
-Server Software:		SOA-Toolbox/1.5.0
-Server Hostname:		localhost
-Server Port:			8192
 
-Document Path:			http://localhost:8192/service/CBRSOAPHeaderProxy
-Average Document Length:		1024 bytes
-
-Concurrency Level:		20
+Server Software:			SOA-Toolbox/1.5.0
+Server Hostname:			localhost
+Server Port:				8192
+Document Path:				http://localhost:8192/service/CBRSOAPHeaderProxy
+Average Document Length:	1024 bytes
+Concurrency Level:			20
 Time taken for tests:		10.046931 seconds
-Complete requests:		20000
-Failed requests:		0
-Write errors:			0
-Total transferred:		40960000 bytes
-Requests per second:		1,990.66 [#/sec] (mean)
-Time per request:		10.047 [ms] (mean)
-Time per request:		0.502 [ms] (mean, across all concurrent requests)
-Transfer rate:			2,038.43 [Kbytes/sec] received
-				2,038.43 kb/s sent
-				4,076.87 kb/s total
-Running iteration 0
-Picked up JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF-8
+Complete requests:			20000
+Failed requests:			0
+Write errors:				0
+Total transferred:			40960000 bytes
+Requests per second:		2,065.72 [#/sec] (mean)
+Time per request:			9.682 [ms] (mean)
+Time per request:			0.484 [ms] (mean, across all concurrent requests)
+Transfer rate:				2,115.30 [Kbytes/sec] received
+							2,115.30 kb/s sent
+							4,230.60 kb/s total
 
-Server Software:		SOA-Toolbox/1.5.0
-Server Hostname:		localhost
-Server Port:			8192
 
-Document Path:			http://localhost:8192/service/CBRTransportHeaderProxy
-Average Document Length:		1024 bytes
-
-Concurrency Level:		20
+Server Software:			SOA-Toolbox/1.5.0
+Server Hostname:			localhost
+Server Port:				8192
+Document Path:				http://localhost:8192/service/CBRTransportHeaderProxy
+Average Document Length:	1024 bytes
+Concurrency Level:			20
 Time taken for tests:		8.850286 seconds
-Complete requests:		20000
-Failed requests:		0
-Write errors:			0
-Total transferred:		40960000 bytes
-Requests per second:		2,259.81 [#/sec] (mean)
-Time per request:		8.850 [ms] (mean)
-Time per request:		0.443 [ms] (mean, across all concurrent requests)
-Transfer rate:			2,314.05 [Kbytes/sec] received
-				2,314.05 kb/s sent
-				4,628.10 kb/s total
-Running iteration 0
-Picked up JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF-8
+Complete requests:			20000
+Failed requests:			0
+Write errors:				0
+Total transferred:			40960000 bytes
+Requests per second:		2,332.61 [#/sec] (mean)
+Time per request:			8.574 [ms] (mean)
+Time per request:			0.429 [ms] (mean, across all concurrent requests)
+Transfer rate:				2,388.59 [Kbytes/sec] received
+							2,388.59 kb/s sent
+							4,777.18 kb/s total
 
-Server Software:		SOA-Toolbox/1.5.0
-Server Hostname:		localhost
-Server Port:			8192
 
-Document Path:			http://localhost:8192/service/XSLTProxy
-Average Document Length:		1505 bytes
-
-Concurrency Level:		20
+Server Software:			SOA-Toolbox/1.5.0
+Server Hostname:			localhost
+Server Port:				8192
+Document Path:				http://localhost:8192/service/XSLTProxy
+Average Document Length:	1505 bytes
+Concurrency Level:			20
 Time taken for tests:		15.610528 seconds
-Complete requests:		20000
-Failed requests:		0
-Write errors:			0
-Total transferred:		50580000 bytes
-Requests per second:		1,281.19 [#/sec] (mean)
-Time per request:		15.611 [ms] (mean)
-Time per request:		0.781 [ms] (mean, across all concurrent requests)
-Transfer rate:			1,928.19 [Kbytes/sec] received
-				1,311.94 kb/s sent
-				3,240.12 kb/s total
-Running iteration 0
-Picked up JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF-8
+Complete requests:			20000
+Failed requests:			0
+Write errors:				0
+Total transferred:			50580000 bytes
+Requests per second:		1,333.49 [#/sec] (mean)
+Time per request:			14.998 [ms] (mean)
+Time per request:			0.750 [ms] (mean, across all concurrent requests)
+Transfer rate:				2,006.90 [Kbytes/sec] received
+							1,365.49 kb/s sent
+							3,372.40 kb/s total
 
-Server Software:		SOA-Toolbox/1.5.0
-Server Hostname:		localhost
-Server Port:			8192
 
-Document Path:			http://localhost:8192/service/SecureProxy
-Average Document Length:		10915 bytes
-
-Concurrency Level:		20
+Server Software:			SOA-Toolbox/1.5.0
+Server Hostname:			localhost
+Server Port:				8192
+Document Path:				http://localhost:8192/service/SecureProxy
+Average Document Length:	10915 bytes
+Concurrency Level:			20
 Time taken for tests:		94.412769 seconds
-Complete requests:		20000
-Failed requests:		0
-Write errors:			0
-Total transferred:		344495019 bytes
-Requests per second:		211.84 [#/sec] (mean)
-Time per request:		94.413 [ms] (mean)
-Time per request:		4.721 [ms] (mean, across all concurrent requests)
-Transfer rate:			2,312.35 [Kbytes/sec] received
-				1,336.47 kb/s sent
-				3,648.82 kb/s total
+Complete requests:			20000
+Failed requests:			0
+Write errors:				0
+Total transferred:			344495019 bytes
+Requests per second:		219.58 [#/sec] (mean)
+Time per request:			91.082 [ms] (mean)
+Time per request:			4.554 [ms] (mean, across all concurrent requests)
+Transfer rate:				2,397.61 [Kbytes/sec] received
+							1,385.34 kb/s sent
+							3,782.95 kb/s total
