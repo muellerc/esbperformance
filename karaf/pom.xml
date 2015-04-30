@@ -24,8 +24,10 @@
     <packaging>pom</packaging>
 
     <properties>
-        <org.apache.camel.version>2.11-SNAPSHOT</org.apache.camel.version>
-        <org.apache.felix.maven-bundle-plugin.version>2.3.7</org.apache.felix.maven-bundle-plugin.version>
+        <org.apache.camel.version>2.15.1</org.apache.camel.version>
+        <org.apache.cxf.version>3.0.4</org.apache.cxf.version>
+        <org.apache.ws.security.wss4j.version>1.6.18</org.apache.ws.security.wss4j.version>
+        <org.apache.felix.maven-bundle-plugin.version>2.5.4</org.apache.felix.maven-bundle-plugin.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
