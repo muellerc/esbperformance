@@ -1,9 +1,9 @@
-Apache Karaf 2.3.0 - powered by Camel
+Apache Karaf 2.4.2 - powered by Camel
 
 SETUP
 =====
 
-Download Apache Karaf 2.3.0 from http://karaf.apache.org/index/community/download.html and unzip/untar the archive.
+Download Apache Karaf 2.4.2 from http://karaf.apache.org/index/community/download.html and unzip/untar the archive.
 
 Use Maven 3.x to build the artifacts as:
     $ cd ~/resources/esbperformance/karaf
@@ -14,8 +14,6 @@ Increase heap memory by editing ${KARAF_HOME}/bin/karaf to read as follows:
     JAVA_MAX_MEM=2048M
     
 Copy karaf/etc/* into ${KARAF_HOME}/etc
-Copy servicemix-osgi/patch/apache-cxf-2.1.1-features.xml into ${SMX_HOME}/system/org/apache/cxf/karaf/apache-cxf/2.7.1/ (this fixed some required dependency and upgrade to wss4j 1.6.9)
-Copy servicemix-osgi/patch/standard-2.3.0-features.xml into ${SMX_HOME}/system/org/apache/karaf/assemblies/features/standard/2.3.0/ (upgrade to ServiceMix Specs 2.2.0)
 Edit ${SMX_HOME}/etc/jetty.xml:
     Replace the '8' in '<Set name="Acceptors">8</Set>' with the number of available cores (e.g. '2' for an Intel Core 2 Duo)
 
@@ -30,12 +28,12 @@ Start Karaf as (make sure you removed ${KARAF_HOME}/data if this directory alrea
 
 First install the DirectProxy deployable artifacts into ServiceMix. On the ServiceMix console,
 type following to install and start each proxy services into ServiceMix
-    karaf@trun> install -s mvn:org.apache.cmueller.camel.esbperf.karaf/proxy/1.0.0-SNAPSHOT
-    karaf@trun> install -s mvn:org.apache.cmueller.camel.esbperf.karaf/cbr/1.0.0-SNAPSHOT
-    karaf@trun> install -s mvn:org.apache.cmueller.camel.esbperf.karaf/soap-hbr/1.0.0-SNAPSHOT
-    karaf@trun> install -s mvn:org.apache.cmueller.camel.esbperf.karaf/http-hbr/1.0.0-SNAPSHOT
-    karaf@trun> install -s mvn:org.apache.cmueller.camel.esbperf.karaf/xslt/1.0.0-SNAPSHOT
-    karaf@trun> install -s mvn:org.apache.cmueller.camel.esbperf.karaf/secure-proxy/1.0.0-SNAPSHOT
+    karaf@trun> install -s mvn:org.apache.cmueller.camel.esbperf.karaf/proxy/2.15.0-SNAPSHOT
+    karaf@trun> install -s mvn:org.apache.cmueller.camel.esbperf.karaf/cbr/2.15.0-SNAPSHOT
+    karaf@trun> install -s mvn:org.apache.cmueller.camel.esbperf.karaf/soap-hbr/2.15.0-SNAPSHOT
+    karaf@trun> install -s mvn:org.apache.cmueller.camel.esbperf.karaf/http-hbr/2.15.0-SNAPSHOT
+    karaf@trun> install -s mvn:org.apache.cmueller.camel.esbperf.karaf/xslt/2.15.0-SNAPSHOT
+    karaf@trun> install -s mvn:org.apache.cmueller.camel.esbperf.karaf/secure-proxy/2.15.0-SNAPSHOT
     
 Before executing the performance test, re-generate the WS-Security related requests as Karaf is particular about the timestamps used
     $ cd ${ULTRA_ESB_HOME}/samples/bin/
@@ -48,7 +46,7 @@ EXECUTION
 
 Execute the performance test as follows
     $ cd ${ULTRA_ESB_HOME}/samples/bin/
-    $ ./loadtest.sh http://localhost:8192/service > karaf-2.3.0.txt
+    $ ./loadtest.sh http://localhost:8192/service > karaf-2.4.2.txt
 
 
 Service URLs
