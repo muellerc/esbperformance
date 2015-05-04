@@ -29,7 +29,7 @@
         serviceName="service:XSLTProxy"
         wsdlURL="wsdl/TransformerWSDL-consumer-embedded.wsdl"
         xmlns:service="http://services.samples/xsd">
-        
+
         <camel-cxf:properties>
             <entry key="dataFormat" value="MESSAGE" />
         </camel-cxf:properties>
@@ -42,7 +42,7 @@
         wsdlURL="wsdl/TransformerWSDL-provider-embedded.wsdl"
         bindingId="s:EchoServiceSOAP11Binding"
         xmlns:service="http://services.samples/xsd">
-        
+
         <camel-cxf:properties>
             <entry key="dataFormat" value="MESSAGE" />
         </camel-cxf:properties>

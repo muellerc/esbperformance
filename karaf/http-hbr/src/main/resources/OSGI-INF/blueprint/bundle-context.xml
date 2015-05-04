@@ -29,7 +29,7 @@
         serviceName="service:CBRTransportHeaderProxy"
         wsdlURL="wsdl/HBRTransportWSDL-consumer-embedded.wsdl"
         xmlns:service="http://services.samples/xsd">
-        
+
         <camel-cxf:properties>
             <entry key="dataFormat" value="MESSAGE" />
         </camel-cxf:properties>
@@ -42,7 +42,7 @@
         wsdlURL="wsdl/HBRTransportWSDL-provider-embedded.wsdl"
         bindingId="service:EchoServiceSOAP11Binding"
         xmlns:service="http://services.samples/xsd">
-        
+
         <camel-cxf:properties>
             <entry key="dataFormat" value="MESSAGE" />
         </camel-cxf:properties>
@@ -50,7 +50,7 @@
 
     <camel:camelContext>
         <camel:jmxAgent id="agent" disabled="true"/>
-        
+
         <camel:route id="cxf-transport-header-proxy">
             <camel:from uri="cxf:bean:cbrProxy" />
             <camel:choice>

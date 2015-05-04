@@ -57,7 +57,7 @@
             </map>
         </argument>
     </bean>
-    
+
     <bean class="org.apache.cxf.ws.security.wss4j.WSS4JOutInterceptor" id="TimestampSignEncrypt_Response">
         <argument>
             <map>

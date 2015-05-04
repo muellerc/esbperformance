@@ -31,7 +31,7 @@
         serviceName="service:CBRProxy"
         wsdlURL="wsdl/CBRWSDL-consumer-embedded.wsdl"
         xmlns:service="http://services.samples/xsd">
-        
+
         <camel-cxf:properties>
             <entry key="dataFormat" value="MESSAGE" />
         </camel-cxf:properties>
@@ -44,7 +44,7 @@
         wsdlURL="wsdl/CBRWSDL-provider-embedded.wsdl"
         bindingId="service:EchoServiceSOAP11Binding"
         xmlns:service="http://services.samples/xsd">
-        
+
         <camel-cxf:properties>
             <entry key="dataFormat" value="MESSAGE" />
         </camel-cxf:properties>

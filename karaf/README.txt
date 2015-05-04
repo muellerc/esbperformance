@@ -28,12 +28,12 @@ Start Karaf as (make sure you removed ${KARAF_HOME}/data if this directory alrea
 
 First install the DirectProxy deployable artifacts into ServiceMix. On the ServiceMix console,
 type following to install and start each proxy services into ServiceMix
-    karaf@trun> install -s mvn:org.apache.cmueller.camel.esbperf.karaf/proxy/2.15.0-SNAPSHOT
-    karaf@trun> install -s mvn:org.apache.cmueller.camel.esbperf.karaf/cbr/2.15.0-SNAPSHOT
-    karaf@trun> install -s mvn:org.apache.cmueller.camel.esbperf.karaf/soap-hbr/2.15.0-SNAPSHOT
-    karaf@trun> install -s mvn:org.apache.cmueller.camel.esbperf.karaf/http-hbr/2.15.0-SNAPSHOT
-    karaf@trun> install -s mvn:org.apache.cmueller.camel.esbperf.karaf/xslt/2.15.0-SNAPSHOT
-    karaf@trun> install -s mvn:org.apache.cmueller.camel.esbperf.karaf/secure-proxy/2.15.0-SNAPSHOT
+    karaf@trun> install -s mvn:org.apache.cmueller.camel.esbperf.karaf/proxy/2.15.2-SNAPSHOT
+    karaf@trun> install -s mvn:org.apache.cmueller.camel.esbperf.karaf/cbr/2.15.2-SNAPSHOT
+    karaf@trun> install -s mvn:org.apache.cmueller.camel.esbperf.karaf/soap-hbr/2.15.2-SNAPSHOT
+    karaf@trun> install -s mvn:org.apache.cmueller.camel.esbperf.karaf/http-hbr/2.15.2-SNAPSHOT
+    karaf@trun> install -s mvn:org.apache.cmueller.camel.esbperf.karaf/xslt/2.15.2-SNAPSHOT
+    karaf@trun> install -s mvn:org.apache.cmueller.camel.esbperf.karaf/secure-proxy/2.15.2-SNAPSHOT
     
 Before executing the performance test, re-generate the WS-Security related requests as Karaf is particular about the timestamps used
     $ cd ${ULTRA_ESB_HOME}/samples/bin/
